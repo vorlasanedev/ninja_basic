@@ -26,11 +26,11 @@ git push -u origin main
 ### #3 TextField controller
 [x] local TextField controller
 ### #4 FormWidget
-[x] create _formKey
 [x] TextFormField
-# TODO: #5 
-[]
-# TODO: #6
+### #5 Create _formKey
+[x] _formKey
+[x] validate()
+### #6 Drop Down FormField
 []
 # TODO: #7
 []

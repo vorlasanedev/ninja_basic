@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
-  final _priorityController = TextEditingController();
+  final Priority _selectedPriority = Priority.low;
 
   final List<Todo> todos = [
     Todo(
@@ -125,7 +125,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       return null;
                     },
                   ),
-                  TextFormField(controller: _priorityController),
+
+                  ///DropDown FormField
+                  DropdownButtonFormField(
+                    initialValue: _selectedPriority,
+                    decoration: InputDecoration(
+                      label: Text('Priority of todo'),
+                    ),
+                    items: Priority.values.map((p) {
+                      return DropdownMenuItem(value: p, child: Text(p.title));
+                    }).toList(),
+                    onChanged: (Priority? value) {
+                      print(value);
+                    },
+                  ),
+
+                  SizedBox(height: 20),
                   FilledButton(
                     onPressed: () {
                       _formKey.currentState!.validate();
