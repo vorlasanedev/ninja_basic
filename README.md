@@ -34,9 +34,9 @@ git push -u origin main
 [x] DropdownbuttonFormField
 [x] setState for _selectedPriority onChange()
 ### #7 Submit form Data to Todo Model
-[]
-# TODO: #8
-[]
+[] save onPressed()
+### #8 Reset Form
+[] reset _formKey.currentState!.reset();
 # TODO: #10
 []
 # TODO: #11

@@ -165,15 +165,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         });
-                        // Reset form state
-                        _formKey.currentState!.reset();
-                        // Clear text controllers to reset fields visually
-                        _titleController.clear();
-                        _descriptionController.clear();
-                        // Reset priority if needed
+
                         /// Reset FormSate
                         _formKey.currentState!.reset();
                         _selectedPriority = Priority.low;
+                        // Clear text controllers to reset fields visually
+                        _titleController.clear();
+                        _descriptionController.clear();
                       }
                     },
                     style: FilledButton.styleFrom(
