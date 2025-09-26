@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ninja_basic/screens/column_widget.dart';
 import 'package:ninja_basic/screens/home_screen.dart';
+import 'package:ninja_basic/screens/coffee_prefs.dart';
 import 'package:ninja_basic/screens/profile_screen.dart';
+import 'package:ninja_basic/screens/row_widget.dart';
 import 'package:ninja_basic/screens/setting_screen.dart';
 
 class RootScreen extends StatefulWidget {
@@ -17,6 +20,9 @@ class _RootScreenState extends State<RootScreen> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const ProfileScreen(),
+    const ColumnWidget(),
+    const RowWidget(),
+    const CoffeePrefs(),
     const SettingScreen(),
   ];
 
@@ -56,10 +62,28 @@ class _RootScreenState extends State<RootScreen> {
               onTap: () => _onSelectItem(1),
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: Icon(Icons.cabin),
+              title: Text('Column Widget'),
               selected: _selectedIndex == 2,
               onTap: () => _onSelectItem(2),
+            ),
+            ListTile(
+              leading: Icon(Icons.cabin),
+              title: Text('Row Widget'),
+              selected: _selectedIndex == 3,
+              onTap: () => _onSelectItem(3),
+            ),
+            ListTile(
+              leading: Icon(Icons.cabin),
+              title: Text('Coffee Prefs'),
+              selected: _selectedIndex == 4,
+              onTap: () => _onSelectItem(4),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              selected: _selectedIndex == 5,
+              onTap: () => _onSelectItem(5),
             ),
           ],
         ),

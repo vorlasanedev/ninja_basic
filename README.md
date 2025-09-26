@@ -38,15 +38,16 @@ git push -u origin main
 ### #8 Reset Form
 [x] reset _formKey.currentState!.reset();
 ### #9 Container
-[] 
-# TODO: #11
-[]
-# TODO: #12
-[]
-# TODO: #13
-[]
-# TODO: #14
-[]
+[x] profile screen with container widget
+[x] create root_screen with drawer menu
+### # #10 splash Screen 
+[x] import root_screen to main app
+### #11 Column Widget
+[x] Column Widget with properties
+### #12 Row Widget
+[x] Row Widget with properties
+### #13 Image Widget
+[] image
 # TODO: #15
 []
 # TODO: #16
