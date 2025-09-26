@@ -47,7 +47,7 @@ git push -u origin main
 ### #12 Row Widget
 [x] Row Widget with properties
 ### #13 Image Widget
-[] image
+[x] image.asset() link
 # TODO: #15
 []
 # TODO: #16
