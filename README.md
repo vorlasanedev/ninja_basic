@@ -18,10 +18,11 @@ git add .
 git commit -m "initail github"
 git push -u origin main
 ```
-# [x] TODO: #1 - use input (TextField) 
-[x]
-# TODO: #2
-[]
+[x] TODO: #1 - use input (TextField) 
+
+[x] TODO: #2 TextField Widget
+[x] TextField local valaible
+[x] TextField controller
 # TODO: #3
 []
 # TODO: #4
