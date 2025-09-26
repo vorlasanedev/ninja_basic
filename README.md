@@ -31,8 +31,9 @@ git push -u origin main
 [x] _formKey
 [x] validate()
 ### #6 Drop Down FormField
-[]
-# TODO: #7
+[x] DropdownbuttonFormField
+[x] setState for _selectedPriority onChange()
+### #7 Submit form Data to Todo Model
 []
 # TODO: #8
 []

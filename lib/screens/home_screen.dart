@@ -21,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
   Priority _selectedPriority = Priority.low;
+  String _title = '';
+  String _description = '';
 
   final List<Todo> todos = [
     Todo(
@@ -104,11 +106,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: Text('Title'),
                       hintText: 'title',
                     ),
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return 'Title is required!';
                       }
                       return null;
+                    },
+                    onSaved: (value) {
+                      _title = value!;
                     },
                   ),
                   TextFormField(
@@ -118,11 +123,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: Text('Description'),
                       hintText: 'desc',
                     ),
-                    validator: (val) {
-                      if (val == null || val.isEmpty || val.length < 5) {
+                    validator: (value) {
+                      if (value == null || value.isEmpty || value.length < 5) {
                         return 'Description is required! minimam 5 character';
                       }
                       return null;
+                    },
+                    onSaved: (value) {
+                      _description = value!;
                     },
                   ),
 
@@ -146,7 +154,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 20),
                   FilledButton(
                     onPressed: () {
-                      _formKey.currentState!.validate();
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        setState(() {
+                          todos.add(
+                            Todo(
+                              title: _title,
+                              description: _description,
+                              priority: _selectedPriority,
+                            ),
+                          );
+                        });
+                        // Reset form state
+                        _formKey.currentState!.reset();
+                        // Clear text controllers to reset fields visually
+                        _titleController.clear();
+                        _descriptionController.clear();
+                        // Reset priority if needed
+                        /// Reset FormSate
+                        _formKey.currentState!.reset();
+                        _selectedPriority = Priority.low;
+                      }
                     },
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.green.shade400,
