@@ -10,10 +10,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  /*
   ///[x] 1.1 local TextField valaible
   String _email = ''; // Class member for email
   ///[x] 2.1 local TextField emailController
   final _emailController = TextEditingController();
+*/
+  ///[x] FormKey
+  final _formKey = GlobalKey<FormState>();
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _priorityController = TextEditingController();
 
   final List<Todo> todos = [
     Todo(
@@ -46,8 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
+            /// List todo from TodoList
             Expanded(child: TodoList(todos: todos)),
 
+            /// valaible and emailController
+            /*
             ///[x]1.2 TextField Email
             TextField(
               controller: _emailController,
@@ -79,6 +89,60 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Text('Email Controller'),
             ),
+    */
+
+            /// From Widget
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextFormField(
+                    controller: _titleController,
+                    maxLength: 20,
+                    decoration: InputDecoration(
+                      label: Text('Title'),
+                      hintText: 'title',
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Title is required!';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    controller: _descriptionController,
+                    maxLength: 20,
+                    decoration: InputDecoration(
+                      label: Text('Description'),
+                      hintText: 'desc',
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty || val.length < 5) {
+                        return 'Description is required! minimam 5 character';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(controller: _priorityController),
+                  FilledButton(
+                    onPressed: () {
+                      _formKey.currentState!.validate();
+                    },
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.green.shade400,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text('Save'),
+                  ),
+                ],
+              ),
+            ),
+
+            /// End Form Widget
           ],
         ),
       ),
