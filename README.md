@@ -40,7 +40,7 @@ git push -u origin main
 ### #9 Container
 [x] profile screen with container widget
 [x] create root_screen with drawer menu
-### # #10 splash Screen 
+### #10 splash Screen 
 [x] import root_screen to main app
 ### #11 Column Widget
 [x] Column Widget with properties
@@ -48,6 +48,6 @@ git push -u origin main
 [x] Row Widget with properties
 ### #13 Image Widget
 [x] image.asset() link
-# TODO: #15
+### #14 Expand Widget
 []
-# TODO: #16
+# TODO: #15

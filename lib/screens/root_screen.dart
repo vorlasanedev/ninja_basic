@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninja_basic/screens/column_widget.dart';
+import 'package:ninja_basic/screens/expand_widget.dart';
 import 'package:ninja_basic/screens/home_screen.dart';
-import 'package:ninja_basic/screens/coffee_prefs.dart';
 import 'package:ninja_basic/screens/profile_screen.dart';
 import 'package:ninja_basic/screens/row_widget.dart';
 import 'package:ninja_basic/screens/setting_screen.dart';
@@ -22,7 +22,7 @@ class _RootScreenState extends State<RootScreen> {
     const ProfileScreen(),
     const ColumnWidget(),
     const RowWidget(),
-    const CoffeePrefs(),
+    const ExpandWidget(),
     const SettingScreen(),
   ];
 
