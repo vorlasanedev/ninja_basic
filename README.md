@@ -56,4 +56,3 @@ git push -u origin main
 [x] 17 controllist
 ### Making Reuse widget (TextStyle one time create utile and reuse with other text)
 [x] 18 make common_style_text and commond_style_button
-[] 19 
