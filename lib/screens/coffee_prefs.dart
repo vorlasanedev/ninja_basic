@@ -1,15 +1,33 @@
 import 'package:flutter/material.dart';
 
-class CoffeePrefs extends StatelessWidget {
+class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
+
+  @override
+  State<CoffeePrefs> createState() => _CoffeePrefsState();
+}
+
+class _CoffeePrefsState extends State<CoffeePrefs> {
+  int coffee_qty = 1;
+  int sugar_qty = 1;
 
   /// Example show text in debug console function for onPress button
   void increasedButton() {
-    print('inc by 1');
+    setState(() {
+      coffee_qty = coffee_qty < 5 ? coffee_qty + 1 : 0;
+    });
   }
 
-  void decreasedButton() {
-    print('decr by 1');
+  void increasedSuga() {
+    setState(() {
+      sugar_qty = sugar_qty < 5 ? sugar_qty + 1 : 0;
+    });
+  }
+
+  void decreasedSuga() {
+    setState(() {
+      sugar_qty = sugar_qty < 5 ? sugar_qty - 1 : 0;
+    });
   }
 
   @override
@@ -18,8 +36,10 @@ class CoffeePrefs extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text('coffee1'),
-            Text('300'),
+            Text('Sugar'),
+            Expanded(child: SizedBox()),
+            Text('$sugar_qty'),
+            Expanded(child: SizedBox()),
             Image.asset(
               'assets/images/backpack.png',
               width: 40,
@@ -28,14 +48,15 @@ class CoffeePrefs extends StatelessWidget {
             ),
 
             /// Button and event
-            Expanded(child: SizedBox(width: 50)),
-            FilledButton(onPressed: decreasedButton, child: Icon(Icons.remove)),
+            Expanded(child: SizedBox()),
+            FilledButton(onPressed: decreasedSuga, child: Icon(Icons.remove)),
+            FilledButton(onPressed: increasedSuga, child: Icon(Icons.add)),
           ],
         ),
         Row(
           children: [
-            Text('coffee1'),
-            Text('300'),
+            Text('coffe'),
+            Text('$coffee_qty'),
             Image.asset(
               'assets/images/drum.png',
               width: 40,
@@ -47,7 +68,9 @@ class CoffeePrefs extends StatelessWidget {
             Expanded(child: SizedBox(width: 50)),
             FilledButton(
               onPressed: () {
-                print('ClickMe');
+                setState(() {
+                  coffee_qty = coffee_qty + 1;
+                });
               },
               child: Icon(Icons.add),
             ),
@@ -55,8 +78,8 @@ class CoffeePrefs extends StatelessWidget {
         ),
         Row(
           children: [
-            Text('coffee1'),
-            Text('300'),
+            Text('coffee coo'),
+            Text('$coffee_qty'),
             Image.asset(
               'assets/images/guitar.png',
               width: 40,
