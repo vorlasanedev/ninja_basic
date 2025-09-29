@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninja_basic/screens/coffee_prefs.dart';
+import 'package:ninja_basic/utils/common_style_text.dart';
 
 class ExpandWidget extends StatelessWidget {
   const ExpandWidget({super.key});
@@ -13,7 +14,7 @@ class ExpandWidget extends StatelessWidget {
           Container(
             color: Colors.brown[200],
             padding: EdgeInsets.all(20),
-            child: Text('How i like my coffe...'),
+            child: CommonStyleText(text: 'How i like coffee...'),
           ),
           Container(
             color: Colors.brown[100],

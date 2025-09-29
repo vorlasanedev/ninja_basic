@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ninja_basic/utils/common_style_button.dart';
 
 class CoffeePrefs extends StatefulWidget {
   const CoffeePrefs({super.key});
@@ -43,7 +44,8 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
 
             /// Button and event
             Expanded(child: SizedBox()),
-            FilledButton(onPressed: increasedSuga, child: Icon(Icons.add)),
+            CommonStyleButton(child: Icon(Icons.add), onPressed: increasedSuga),
+            // FilledButton(onPressed: increasedSuga, child: Icon(Icons.add)),
           ],
         ),
         Row(
