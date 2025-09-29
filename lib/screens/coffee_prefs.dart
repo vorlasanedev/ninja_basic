@@ -24,12 +24,6 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
     });
   }
 
-  void decreasedSuga() {
-    setState(() {
-      sugar_qty = sugar_qty < 5 ? sugar_qty - 1 : 0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,18 +32,17 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
           children: [
             Text('Sugar'),
             Expanded(child: SizedBox()),
-            Text('$sugar_qty'),
-            Expanded(child: SizedBox()),
-            Image.asset(
-              'assets/images/backpack.png',
-              width: 40,
-              color: Colors.brown[100],
-              colorBlendMode: BlendMode.multiply,
-            ),
+            if (sugar_qty == 0) Text('No Sugar'),
+            for (int i = 0; i < sugar_qty; i++)
+              Image.asset(
+                'assets/images/backpack.png',
+                width: 40,
+                color: Colors.brown[100],
+                colorBlendMode: BlendMode.multiply,
+              ),
 
             /// Button and event
             Expanded(child: SizedBox()),
-            FilledButton(onPressed: decreasedSuga, child: Icon(Icons.remove)),
             FilledButton(onPressed: increasedSuga, child: Icon(Icons.add)),
           ],
         ),
@@ -66,14 +59,7 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
 
             /// Button and event
             Expanded(child: SizedBox(width: 50)),
-            FilledButton(
-              onPressed: () {
-                setState(() {
-                  coffee_qty = coffee_qty + 1;
-                });
-              },
-              child: Icon(Icons.add),
-            ),
+            FilledButton(onPressed: increasedButton, child: Icon(Icons.add)),
           ],
         ),
         Row(
@@ -89,7 +75,14 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
 
             /// Button and event
             Expanded(child: SizedBox(width: 50)),
-            TextButton(onPressed: increasedButton, child: Icon(Icons.add)),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  coffee_qty = coffee_qty + 1;
+                });
+              },
+              child: Icon(Icons.add),
+            ),
           ],
         ),
       ],
